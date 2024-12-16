@@ -140,29 +140,62 @@
         <section id="eventos" class="mb-4">
             <h2>Próximos Eventos</h2>
             <ul>
-                <li>4 de diciembre de 2024: Lanzamiento oficial en librerías.</li>
-                <li>10 de diciembre de 2024: Presentación en la Casa del Libro, Madrid.</li>
-                <li>17 de diciembre de 2024: Encuentro con los autores en Barcelona.</li>
+                <li>6 de enero de 2025: Lanzamiento oficial en librerías.</li>
+                <li>18 de enero de 2025: Presentación en la Casa museo de Lope de Vega, Madrid.</li>
+                <li>19 de enero de 2025: Encuentro con los autores en la librería Tomos y Grapas, Madrid.</li>
             </ul>
         </section>
-
         <section id="galeria" class="mb-4">
             <h2>Galería</h2>
-            <div class="row">
+            <div class="row gallery">
                 <div class="col-md-3">
-                    <img src="images\galeria1.jpg" alt="Ilustración del cómic 1" class="img-fluid">
+                    <img src="galeria1.jpg" alt="Ilustración del cómic 1" class="img-fluid">
                 </div>
                 <div class="col-md-3">
-                    <img src="images\galeria2.jpg" alt="Ilustración del cómic 2" class="img-fluid">
+                    <img src="galeria2.jpg" alt="Ilustración del cómic 2" class="img-fluid">
                 </div>
                 <div class="col-md-3">
-                    <img src="images\galeria3.jpg" alt="Ilustración del cómic 3" class="img-fluid">
+                    <img src="galeria3.jpg" alt="Ilustración del cómic 3" class="img-fluid">
                 </div>
                 <div class="col-md-3">
-                    <img src="images\galeria4.jpg" alt="Ilustración del cómic 4" class="img-fluid">
+                    <img src="galeria4.jpg" alt="Ilustración del cómic 4" class="img-fluid">
                 </div>
             </div>
         </section>
+        
+        <script>
+            // Añade funcionalidad para ampliar las imágenes
+            document.querySelectorAll('.gallery img').forEach(img => {
+                img.addEventListener('click', () => {
+                    // Crear un visor emergente
+                    const viewer = document.createElement('div');
+                    viewer.style.position = 'fixed';
+                    viewer.style.top = '0';
+                    viewer.style.left = '0';
+                    viewer.style.width = '100%';
+                    viewer.style.height = '100%';
+                    viewer.style.background = 'rgba(0,0,0,0.8)';
+                    viewer.style.display = 'flex';
+                    viewer.style.justifyContent = 'center';
+                    viewer.style.alignItems = 'center';
+                    viewer.style.zIndex = '1000';
+                    
+                    // Imagen ampliada
+                    const imgElement = document.createElement('img');
+                    imgElement.src = img.src;
+                    imgElement.style.maxWidth = '90%';
+                    imgElement.style.maxHeight = '90%';
+                    imgElement.style.borderRadius = '10px';
+                    
+                    // Añadir y cerrar el visor
+                    viewer.appendChild(imgElement);
+                    viewer.addEventListener('click', () => viewer.remove());
+                    document.body.appendChild(viewer);
+                });
+            });
+        </script>
+        
+       
     </main>
     <footer class="bg-dark text-white text-center py-3">
         <p>© 2024 Espada y Pluma | Cascaborra Ediciones</p>
